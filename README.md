@@ -24,6 +24,8 @@ Paper: https://arxiv.org/abs/2109.11978
 5. Install legged_gym
     - Clone this repository
    - `cd legged_gym && pip install -e .`
+6. Add following path to the ~/.bashrc file.
+    LD_LIBRARY_PATH=/home/"User_name"/"anaconda_folder"/envs/rlgpu/lib:$LD_LIBRARY_PATH
 
 ### CODE STRUCTURE ###
 1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one conatianing all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  
@@ -33,7 +35,7 @@ Paper: https://arxiv.org/abs/2109.11978
 
 ### Usage ###
 1. Train:  
-  ```python issacgym_anymal/scripts/train.py --task=anymal_c_flat```
+  ```python legged_gym/scripts/train.py --task=anymal_c_flat```
     -  To run on CPU add following arguments: `--sim_device=cpu`, `--rl_device=cpu` (sim on CPU and rl on GPU is possible).
     -  To run headless (no rendering) add `--headless`.
     - **Important**: To improve performance, once the training starts press `v` to stop the rendering. You can then enable it later to check the progress.
