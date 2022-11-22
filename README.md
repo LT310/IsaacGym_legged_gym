@@ -25,7 +25,7 @@ Paper: https://arxiv.org/abs/2109.11978
     - Clone this repository
    - `cd legged_gym && pip install -e .`
 6. Add following path to the ~/.bashrc file.
-    LD_LIBRARY_PATH=/home/"User_name"/"anaconda_folder"/envs/rlgpu/lib:$LD_LIBRARY_PATH
+    - LD_LIBRARY_PATH=/home/"User_name"/"anaconda_folder"/envs/rlgpu/lib:$LD_LIBRARY_PATH
 
 ### CODE STRUCTURE ###
 1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one conatianing all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  
