@@ -93,4 +93,8 @@ The base environment `legged_robot` implements a rough terrain locomotion task. 
     self.gym.refresh_force_sensor_tensor(self.sim)
     contact = self.sensor_forces[:, :, 2] > 1.
 ```
-# IsaacGym_legged_gym
+TODO:
+1. Fix the following error
+- UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  return forward_call(*input, **kwargs)
+
