@@ -75,7 +75,21 @@ class Anymal(LeggedRobot):
                 self.sea_input[:, 0, 0] = (actions * self.cfg.control.action_scale + self.default_dof_pos - self.dof_pos).flatten()
                 self.sea_input[:, 0, 1] = self.dof_vel.flatten()
                 torques, (self.sea_hidden_state[:], self.sea_cell_state[:]) = self.actuator_network(self.sea_input, (self.sea_hidden_state, self.sea_cell_state))
-            return torques
+                # A = torch.tensor([0,0,0,1,1,1,1,1,1,1,1,1])
+                # A = torch.tensor([1,1,1,0,0,0,1,1,1,1,1,1])
+                # A = torch.tensor([1,1,1,1,1,1,0,0,0,1,1,1])
+                # A = torch.tensor([1,1,1,1,1,1,1,1,1,0,0,0])
+                n = random.randint(4,8)
+                A = torch.tensor([1,1,1,1,1,1,1,1,1,1,1,1])
+                indicies = (torch.randint(0,11,(n,)),)
+
+                value = torch.zeros(n).type(torch.int64)
+
+                A.index_put_(indicies,value) 
+                B = A.repeat(self.num_envs,)
+
+            
+            return torques * B.cuda()#torques
         else:
             # pd controller
             return super()._compute_torques(actions)    
