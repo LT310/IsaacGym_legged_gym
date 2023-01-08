@@ -1,3 +1,6 @@
+# Method to Torque = 0, to mimic joint failure:
+In the legged_gym > envs > anymal_c folder, there is anymal.py script. Within, this script, go to compute torque function and comment and uncomment lines before training to set the joints diabling.
+
 # Isaac Gym Environments for Legged Robots #
 This repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.
 It includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  
